@@ -1237,6 +1237,116 @@ section {
   background: #9fc5f8;
 }
 
+/* login*/
+
+/* .login .login .info-box {
+  color: #444444;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+  padding: 20px 0 30px 0;
+}
+
+.login .login .info-box i {
+  font-size: 32px;
+  color: #9fc5f8;
+  border-radius: 50%;
+  padding: 8px;
+  border: 2px dotted #f5a0a0;
+}
+
+.login .login .info-box h3 {
+  font-size: 20px;
+  color: #777777;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.login .login .info-box p {
+  padding: 0;
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.login .login {
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+  padding: 30px;
+}
+
+.login .login .error-message {
+  display: none;
+  color: #fff;
+  background: #9fc5f8;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.login .login .error-message br+br {
+  margin-top: 25px;
+}
+
+.login .login .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.login .login .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.login .login .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
+}
+
+.login .login input,
+.login .login textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+}
+
+.login .login input::focus,
+.login .login textarea::focus {
+  background-color: #9fc5f8;
+}
+
+.login .login input {
+  padding: 10px 15px;
+}
+
+.login .login textarea {
+  padding: 12px 15px;
+}
+
+.login .login button[type=submit] {
+  background: #9fc5f8;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+}
+
+.login .login button[type=submit]:hover {
+  background: #9fc5f8;
+}
+ */
 @-webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg);
