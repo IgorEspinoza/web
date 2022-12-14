@@ -1,77 +1,96 @@
 var formulario = document.getElementById('formulario');
+var user = document.getElementById('username').value;
+var pas = document.getElementById('password').value;
 
 formulario.addEventListener('submit', function (e) {
   e.preventDefault();
-  console.log('click')
 
-  const Datos = new FormData(formulario);
-  console.log(Datos);
+  var data1 = user;
+  var data2 = user + "/" + pas;
 
-  var myHeaders = new Headers();
-  myHeaders.append("" , 'formulario/username');
-  myHeaders.append("" , 'formulario/password');
-  
-  
+  const Datos = new FormData(formulario)
 
-  var formdata = new FormData();
-  formdata.append("", username);
-  formdata.append("", password);
+  async function postData(url = '', data = data1) {
+    // Default options are marked with *
+    const response = await fetch( url, {
+      method: 'GET', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'same-origin', // include, *same-origin, omit
+      headers: {
+        //'Content-Type': 'application/json',
+        //'Content-Type': 'application/x-www-form-urlencoded', 
+        
+      },
+      redirect: 'follow', // manual, *follow, error
+      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      //body: data // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response inzto native JavaScript objects
+  }
 
-  var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: formdata,
-    redirect: 'follow'
-  };
+  var v = ""
 
-  fetch("http://127.0.0.1:8000/login/", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+  postData('http://127.0.0.1:8000/buscar_users/' + data1 )
+    .then(res => res.json())
+    .then(response => {
+      
+      v = response[0]    
+      console.log(response)
+      console.log(v)
 
-});
- /* async function postData(url = '', data = {Datos}) {
-   // Default options are marked with *
-   const response = await fetch(url, {
-     method: 'POST', // *GET, POST, PUT, DELETE, etc.
-     mode: 'cors', // no-cors, *cors, same-origin
-     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-     credentials: 'same-origin', // include, *same-origin, omit
-     headers: {
-       'Content-Type': 'application/json',
-       //'Content-Type': 'application/x-www-form-urlencoded',
-     },
-     redirect: 'follow', // manual, *follow, error
-     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-     body: JSON.stringify(data) // body data type must match "Content-Type" header
-   });
-   console.log(JSON.stringify(data))
-   return response.json(); // parses JSON response into native JavaScript objects
- }
+      validar();
+    })
+    .then(res => Error)
 
- postData('http://127.0.0.1:8000/login/'+ )
-   .then((data) => {
-     console.log(data); // JSON data parsed by `data.json()` call
-   });
-});   */
+function validar(){
+
+  var rol = v["Id_Rol"]
+
+  if(rol == 2){
+
+    postData('http://127.0.0.1:8000/login/' + data2 )
+    //.then(res => res.json())
+    .then(response => {
+      v = response[0]    
+      console.log(v)
+
+      login();
+    })
+    .then(res => Error)
+
+  }else if (rol == 3){
+    postData('http://127.0.0.1:8000/loginEm/' + data1 )
+    //.then(res => res.json())
+    .then(response => {
+      
+      v = response[0]    
+      console.log(v)
+
+      login();
+    })
+    .then(res => Error)
+
+  }
+}
 
 
-/* var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
+function login() {
 
-var raw = JSON.stringify({
-  "USERNAME": "195695717",
-  "PASSWORD": "pro"
-});
+  var estado = v["Id_Estado"]
+  var rol = v["Id_Rol"]
+  console.log(rol)
 
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  body: raw,
-  redirect: 'follow'
-};
-
-fetch("http://127.0.0.1:8000/login/195695717/pro", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error)); */
+    if (estado == 1) {
+      if (rol == 2) {
+        window.location.href = 'portfolio-details.html';
+      } else if (rol == 3) {
+        window.location.href = 'index.html';
+      } else {
+        alert('Usuario NO valido')
+      }
+    } else {
+      alert('Usuario inactivo')
+    }
+    }
+})

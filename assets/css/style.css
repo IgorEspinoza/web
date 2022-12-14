@@ -781,9 +781,9 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Portfolio
+# Portafolio
 --------------------------------------------------------------*/
-.portfolio #portfolio-flters {
+.portafolio #portfolio-flters {
   padding: 0;
   margin: 0 auto 25px auto;
   list-style: none;
@@ -791,7 +791,7 @@ section {
   border-radius: 50px;
 }
 
-.portfolio #portfolio-flters li {
+.portafolio #portfolio-flters li {
   cursor: pointer;
   display: inline-block;
   padding: 10px 15px;
@@ -805,7 +805,7 @@ section {
   font-family: "Poppins", sans-serif;
 }
 
-.portfolio #portfolio-flters li:hover,
+.portafolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
   color: #9fc5f8;
 }
@@ -1559,4 +1559,176 @@ section {
   #footer .footer-top .footer-info {
     margin: -20px 0 30px 0;
   }
+}
+
+ /* <!--Formulario--> */
+
+  /* #form { font: 1em/1.5 monospace; } */
+  /*#label,input { margin: 0.5em;} */ */
+
+/* Barra Cliente */
+.barracli {
+  padding: 0;
+}
+
+.barracli ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.barracli li {
+  position: relative;
+}
+
+.barracli>ul>li {
+  margin-left: 5px;
+}
+
+.barracli a,
+.barracli a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 15px 24px 15px;
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.barracli a i,
+.barracli a:focus i {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: 5px;
+}
+
+.barracli a:hover,
+.barracli .active,
+.barracli .active:focus,
+.barracli li:hover>a {
+  background: #9fc5f8;
+}
+
+.barracli .dropdown ul {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 30px);
+  margin: 0;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: 0.3s;
+}
+
+.barracli .dropdown ul li {
+  min-width: 200px;
+}
+
+.barracli .dropdown ul a {
+  padding: 10px 20px;
+  color: #191919;
+}
+
+.barracli .dropdown ul a i {
+  font-size: 12px;
+}
+
+.barracli .dropdown ul a:hover,
+.barracli .dropdown ul .active:hover,
+.barracli .dropdown ul li:hover>a {
+  color: #fff;
+}
+
+.barracli .dropdown:hover>ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
+
+.barracli .dropdown .dropdown ul {
+  top: 0;
+  left: calc(100% - 30px);
+  visibility: hidden;
+}
+
+.barracli .dropdown .dropdown:hover>ul {
+  opacity: 1;
+  top: 0;
+  left: 100%;
+  visibility: visible;
+}
+
+@media (max-width: 1366px) {
+  .barracli .dropdown .dropdown ul {
+    left: -90%;
+  }
+
+  .barracli .dropdown .dropdown:hover>ul {
+    left: -100%;
+  }
+}
+
+/* formulario 1 */
+*{box-sizing:border-box;}
+
+.formulario1{
+	width: 100px;
+	padding:600px;
+	border-radius:110px;
+	margin: 0 auto;
+	background-color:#ccc;
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.formulario1 label{
+	width:72px;
+	font-weight:bold;
+	display:inline-block;
+}
+
+.formulario1 input[type="text"],
+.formulario1 input[type="email"]{
+	width:180px;
+	padding:3px 10px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;
+	margin: 0px;
+  display:inline-block;
+}
+
+.formulario1 input[type="submit"]{
+	width:100%;
+	padding:8px 16px;
+	margin-top:32px;
+	border:1px solid #000;
+	border-radius:5px;
+	display:block;
+	color:#fff;
+	background-color:#000;
+} 
+
+.formulario1 input[type="submit"]:hover{
+	cursor:pointer;
+}
+
+textarea{
+	width:100%;
+	height:100px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;			
+	margin:8px 0;
+	/*resize: vertical | horizontal | none | both*/
+	resize:none;
+	display:block;
 }
